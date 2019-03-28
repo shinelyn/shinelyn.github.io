@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="summer">
 <meta property="og:description" content="hexo 建站hexo 是什么？ 1&amp;gt; hexo 是一个快速，简洁且高效的博客框架">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-28T05:05:08.204Z">
+<meta property="og:updated_time" content="2019-03-28T07:25:08.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 建站">
 <meta name="twitter:description" content="hexo 建站hexo 是什么？ 1&amp;gt; hexo 是一个快速，简洁且高效的博客框架">
@@ -104,24 +104,37 @@
         <h2 id="hexo-建站"><a href="#hexo-建站" class="headerlink" title="hexo 建站"></a>hexo 建站</h2><p>hexo 是什么？</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> hexo 是一个快速，简洁且高效的博客框架</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>安装 hexo</p>
-<ul>
+<h2 id="安装-hexo"><a href="#安装-hexo" class="headerlink" title="安装 hexo"></a>安装 hexo</h2><ul>
 <li>执行一下命令安装hexo</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装hexo</span></span><br><span class="line">npm install hexo-cli g</span><br><span class="line"><span class="comment"># 初始化博客文件夹</span></span><br><span class="line">hexo init blog(文件夹)</span><br><span class="line"><span class="comment"># 切换到该路径</span></span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line"><span class="comment"># 安装hexo的扩展插件</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<p>初探hexo</p>
-<ul>
+<h2 id="初探hexo"><a href="#初探hexo" class="headerlink" title="初探hexo"></a>初探hexo</h2><ul>
 <li>本地创建服务器使用</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成静态页面</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 开启本地服务</span></span><br><span class="line">hexo server / hexo s</span><br></pre></td></tr></table></figure>
-<!-- hexo s 后网站打不开
-* 端口被占用，执行命令 hexo s -p 5000，并在浏览器地址栏中输入http://localhost:5000,回车访问。 -->
-<p>报错总结<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 'hexo sever'能够成功运行，但是localhost:4000无法访问</span></span><br><span class="line">解决办法：执行hexo s -p 5000，改用其他端口启动</span><br><span class="line"><span class="comment"># 出现类似 FATAL can not read a block mapping entry; a multiline key may not be an implicit key at line 70, column 1: ... 错误</span></span><br><span class="line">解决办法：_config.yml中配置项的冒号后面要用空格隔开，再跟内容</span><br><span class="line"><span class="comment"># 出现 error deployer not found:git 或者 error deployer not found:github 的错误</span></span><br><span class="line">解决办法：执行 npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h2 id="将hexo博客部署到github上"><a href="#将hexo博客部署到github上" class="headerlink" title="将hexo博客部署到github上"></a>将hexo博客部署到github上</h2><ul>
+<li>修改配置文件blog/_config.yml,修改deploy项的内容</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="comment"># 类型</span></span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  <span class="comment"># 仓库</span></span><br><span class="line">  repo: git@github.com:xuezhisd/xuezhisd.github.io.git</span><br><span class="line">  <span class="comment"># 分支</span></span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="注册github并配置ssh"><a href="#注册github并配置ssh" class="headerlink" title="注册github并配置ssh"></a>注册github并配置ssh</h2><ul>
+<li>配置git的登录信息</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"你的git用户名"</span>    //shinelyn </span><br><span class="line">git config --global user.email <span class="string">"你的git登录邮箱"</span>   //1290959665@qq.com</span><br></pre></td></tr></table></figure>
+<ul>
+<li>生成ssh公私钥</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"你的git登录邮箱"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开文件 /.ssh/id_ras</li>
+<li>设置github的ssh key（将id_rsa.pub的内容拷贝到github的ssh key中）</li>
+</ul>
+<h2 id="部署-hexo"><a href="#部署-hexo" class="headerlink" title="部署 hexo"></a>部署 hexo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清空静态页面</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成静态页面</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 部署 </span></span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment">## 部署遇到的问题 </span></span><br><span class="line">1.hexo 更新到3.0之后，deploy的<span class="built_in">type</span> 的github需要改成git。</span><br><span class="line">2.在执行 hexo deploy 后,出现 error deployer not found:git 的错误处理（解决办法：运行 npm install hexo-deployer-git --save）</span><br></pre></td></tr></table></figure>
+<h2 id="报错总结"><a href="#报错总结" class="headerlink" title="报错总结"></a>报错总结</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 'hexo sever'能够成功运行，但是localhost:4000无法访问</span></span><br><span class="line">解决办法：执行hexo s -p 5000，改用其他端口启动</span><br><span class="line"><span class="comment"># 出现类似 FATAL can not read a block mapping entry; a multiline key may not be an implicit key at line 70, column 1: ... 错误</span></span><br><span class="line">解决办法：_config.yml中配置项的冒号后面要用空格隔开，再跟内容</span><br><span class="line"><span class="comment"># 出现 error deployer not found:git 或者 error deployer not found:github 的错误</span></span><br><span class="line">解决办法：执行 npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/28/hexo/" data-id="cjts9c4rt000584lq12hjhla6" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/03/28/hexo/" data-id="cjtsblk120005volq4zlufoxg" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
