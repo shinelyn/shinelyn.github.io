@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>浏览器的工作原理 | summer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器的工作原理">
+<meta property="og:url" content="http://yoursite.com/2019/03/30/myhexo/index.html">
+<meta property="og:site_name" content="summer">
+<meta property="og:description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/myhexo/images/process.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/30/myhexo/images/thread.png">
+<meta property="og:updated_time" content="2019-03-30T07:07:35.423Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器的工作原理">
+<meta name="twitter:description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/30/myhexo/images/process.png">
+  
+    <link rel="alternate" href="/atom.xml" title="summer" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/uploads/avatar.jpeg">
+    <h2 class="author">summer</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-myhexo" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/30/myhexo/" class="article-date">
+  <time class="post-time" datetime="2019-03-30T04:47:11.197Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br>
+    <span class="post-day">30</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器的工作原理
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么</p>
+<h2 id="浏览器的多进程架构"><a href="#浏览器的多进程架构" class="headerlink" title="浏览器的多进程架构"></a>浏览器的多进程架构</h2><p>以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责</p>
+<h4 id="进程（process）和线程（thread）"><a href="#进程（process）和线程（thread）" class="headerlink" title="进程（process）和线程（thread）"></a>进程（process）和线程（thread）</h4><a id="more"></a>
+<p>进程就像一个有边界的生产厂商，而线程就像厂间内的员工，可以自己做自己的事情，也可以相互配合做同一件事。</p>
+<p>启动应用–&gt;创建一个进程，操作系统会为进程分配一部分内存，应用所有的状态都会保存在这块内存中；应用也可能创建多个线程来辅助工作，创建的线程共享这部分内存中的数据，应用关闭，进程会被终结，操作系统会释放相关的内存。<br>同时一个进程还可以要求操作系统生成另一个进程来执行不同的任务，系统会为新的进程分配独立的内存，两个进程之间可以使用 IPC （Inter Process Communication）进行通信。如果一个工作进程反应迟钝，重启这个进程不会影响应用其它进程的工作。</p>
+<h2 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h2><p>以Chrome为例,Chrome采用多进程架构，其顶层存在一个Browser process用以协调浏览器的其他进程</p>
+<p><img src="images/process.png" alt></p>
+<h4 id="Chorme-的主要进程及职责"><a href="#Chorme-的主要进程及职责" class="headerlink" title="Chorme 的主要进程及职责"></a>Chorme 的主要进程及职责</h4><h5 id="Browser-Process"><a href="#Browser-Process" class="headerlink" title="Browser Process"></a>Browser Process</h5><ul>
+<li>负责包括地址栏，书签栏，前进后退按钮等部分工作</li>
+<li>负责处理浏览器的一些不可见的底层操作，比如网络请求和文件访问。<h5 id="Renderer-Process"><a href="#Renderer-Process" class="headerlink" title="Renderer Process"></a>Renderer Process</h5></li>
+<li>负责一个tab内关于网页呈现的所有事情<h5 id="Plugin-Process"><a href="#Plugin-Process" class="headerlink" title="Plugin Process"></a>Plugin Process</h5></li>
+<li>负责控制一个网页用到的所有插件</li>
+<li>负责处理GPU相关的任务</li>
+</ul>
+<h4 id="导航过程发生了什么"><a href="#导航过程发生了什么" class="headerlink" title="导航过程发生了什么"></a>导航过程发生了什么</h4><p>在地址栏中输入关键字进行搜索或者输入地址导航到某个网站。<br>浏览器的Tab外的工作主要由Browser Process掌控，而这些又有不同的线程进行处理：</p>
+<p><img src="images/thread.png" alt></p>
+<p>当我们在浏览器地址栏中输入文字，并点击回车获得页面内容的过程在浏览器看来可以分为以下几步：</p>
+<h6 id="1-处理输入"><a href="#1-处理输入" class="headerlink" title="1.处理输入"></a>1.处理输入</h6><p>UI thread判断用户输入的是URL还是query；</p>
+<h6 id="2-开始导航"><a href="#2-开始导航" class="headerlink" title="2.开始导航"></a>2.开始导航</h6><p>回车，UI thread通知 network thread 获取网页内容，并控制tab上的spinner展现，表示正在加载中。<br>network thread 会执行DNS 查询，随后为请求建立TLS连接</p>
+<h6 id="3-读取响应"><a href="#3-读取响应" class="headerlink" title="3.读取响应"></a>3.读取响应</h6><p>当请求响应返回的时候，network thread 会依据 Content-Type 及 MIME Type sniffing 判断响应内容的格式。如果响应内容的格式是 HTML ，下一步将会把这些数据传递给 renderer process，如果是 zip 文件或者其它文件，会把相关数据传输给下载管理器。</p>
+<h6 id="4-查找渲染进程"><a href="#4-查找渲染进程" class="headerlink" title="4.查找渲染进程"></a>4.查找渲染进程</h6><p>上述所有的检查完成，network thread 确信浏览器可以导航到请求网页，network thread 会通知 UI thread 数据已经准备好，UI thread 会查找到一个 renderer process 进行网页的渲染。</p>
+<h6 id="5-确认导航"><a href="#5-确认导航" class="headerlink" title="5.确认导航"></a>5.确认导航</h6><p>经过上述过程，Browser Process 会给 renderer process 发送 IPC 消息来确认导航，一旦 Browser Process 收到 renderer process 的渲染确认消息，导航过程结束，页面加载过程开始。此时地址栏会更新，展现出新页面的网页信息，hisitory tab会更新，可通过导航建返回导航来的页面。这些信息都存在硬盘中。</p>
+<h6 id="6-额外的步骤"><a href="#6-额外的步骤" class="headerlink" title="6.额外的步骤"></a>6.额外的步骤</h6><p>所有的js代码其实都是由renderer Process控制的。所以浏览网页内容的过程大部分不会涉及到其他进程。比如监听 beforeunload事件，这个事件再次涉及到 Browser Process 和 renderer Process 的交互，当前页面关闭时（关闭 Tab ，刷新等等），Browser Process 需要通知 renderer Process 进行相关的检查，对相关事件进行处理。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/30/myhexo/" data-id="cju0m834100063wlqx44q5puw" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/28/hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">hexo 建站</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">summer</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="/uploads/avatar.jpeg">
+    <h2 class="author">summer</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 summer<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
