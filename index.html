@@ -38,7 +38,7 @@
     <h2 class="author">summer</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
@@ -66,6 +66,123 @@
 
         <section id="main">
   
+    <article id="post-network" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/07/network/" class="article-date">
+  <time class="post-time" datetime="2019-05-07T07:52:42.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">07</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/07/network/">network 网关</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大家都知道从一个房间走进另一个房间需要经过一扇门，同样从一个网络向另一个网络发送信息，也必须经过一道“关口”，这道关口就是网关。顾名思义，网关(Gateway)就是一个网络连接到另一个网络的“关口”。</p>
+<p><img src="images/network.png" alt></p>
+<p>苍梧国居民总体分为两类：天龙人和普通市民。</p>
+<p>黄色区域，统称为区域T，学术名称： Trusted Zone，居住着特权阶级：天龙人，他们垄断着宇宙的知识，个体可浏览任何知识，信息对其是透明、自由的。</p>
+<p>蓝色区域，统称为区域R，学术名称：Restricted Zone，居住着普通市民，市民有自己的身份证，受法律约束。</p>
+<p>市民只能通过红色的门，俗称龙门，去区域T查询公共资料（可公开访问的接口），但是某些会危及统治的资料（授权接口），市民必须实名浏览，以便监控。</p>
+<p><img src="images/card.png" alt></p>
+<p>白色区域，统称为区域O，学术名称： Overseas Zone，为他国的领土。<br>区域O的他国公民，必须先申请护照，然后办理签证，才能访问苍梧国。</p>
+<p>颁发护照的机构，称为出入境管理中心，即地图中区域O和R交界处的房型Icon。</p>
+<p>苍梧国的护照如下所示：</p>
+<p><img src="images/Id.png" alt></p>
+<p>Trusted Zone<br>我们的机房局域网，机房内的所有服务默认是受信任的，服务之间可以任意访问彼此的数据。 通常情况下，服务之间通过SPI互相访问。</p>
+<p>机房服务器所在网段和其他网络隔离。</p>
+<p>Restricted Zone<br>受限制区域，包括门店电脑，总部电脑、员工等，是除了机房服务器之外的整个局域网设备。</p>
+<p>龙门<br>API网关（<a href="http://aroute.dooioo.com)，Restricted" target="_blank" rel="noopener">http://aroute.dooioo.com)，Restricted</a> Zone的客户端必须通过API网关访问机房的服务。</p>
+<p>API网关也可以称作接入层。</p>
+<p>Overseas Zone<br>外国领土，海外华人华侨，包括Andriod App、IOS App、定制机、外网（公网）产品比如链家网、境外恶势力。</p>
+<p>出入境管理中心<br>OAuth服务（<a href="https://oroute.dooioo.com)，Overseas" target="_blank" rel="noopener">https://oroute.dooioo.com)，Overseas</a> Zone的客户端 必须通过OAuth服务申请护照（登记），办理签证（申请AccessToken)，之后才能访问苍梧国。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/05/07/network/" data-id="cjvdiljfc000cl8lqh29eh8lm" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-cash" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/26/cash/" class="article-date">
+  <time class="post-time" datetime="2019-04-26T15:20:23.000Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/26/cash/">前端缓存</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>缓存的分类<br>按位置：（memory cache，disk cache，service worker）<br>按失效策略：（Cache-Control，E-tag）</p>
+<p>存贮位置的优先级 1.service worker  2.Memory Cache  3.Disk Cache  4.网络请求  找到即返回。</p>
+<p>Memory Cache (内存中的缓存)<br>所有的网络请求资源最后都会被浏览器加载到 Memory Cache中，常规情况下，浏览器的 TAB 关闭后该次浏览的 memory cache 便告失效</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/26/cash/" data-id="cjvdiljf40006l8lqphbis6jn" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-sso-1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/18/sso-1/" class="article-date">
@@ -83,7 +200,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/18/sso-1/">sso</a>
+      <a class="article-title" href="/2019/04/18/sso-1/">SSO（单点登陆）</a>
     </h1>
   
 
@@ -99,64 +216,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。</p>
-<p>单点登陆的机制<br>（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。<br>（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。<br>（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应用系统在接收到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性（4，6）。通过检验，用户就可以在不用在再次登陆的情况下访问应用系统2和应用系统3了</p>
+<p>单点登陆的机制  如图：用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆（1）；根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket（2）；用户在访问别的系统时（3，5）就会将这个（ticket）带上，作为自己认证的凭证，应用系统在接收到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性（4，6）。通过检验，用户就可以在不用在再次登陆的情况下访问应用系统2和应用系统3了</p>
 <p><img src="/images/sso.png" alt></p>
+<p>共同父域下</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/18/sso-1/" data-id="cjumsn2p0000abrlqy46ygywb" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-sso" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/18/sso/" class="article-date">
-  <time class="post-time" datetime="2019-04-18T14:38:22.556Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br>
-    <span class="post-day">18</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/18/sso/">单点登陆</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。</p>
-<p>单点登陆的机制<br>（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。<br>（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。<br>（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应用系统在接收到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性（4，6）。通过检验，用户就可以在不用在再次登陆的情况下访问应用系统2和应用系统3了</p>
-<p><img src="/images/image.jpg" alt></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/18/sso/" data-id="cjumsn2p9000dbrlqakc6d2s3" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/04/18/sso-1/" data-id="cjvdiljfe000dl8lqzxzz4mu0" class="article-share-link">分享</a>
       
       
     </footer>
@@ -209,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/17/mongodb/" data-id="cjumsn2op0009brlqd0hawyc8" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/04/17/mongodb/" data-id="cjvdiljfa000al8lqaj9g5j59" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongoDB/">mongoDB</a></li></ul>
@@ -265,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/16/post/" data-id="cjumsn2p5000cbrlq3ti9hbwl" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/04/16/post/" data-id="cjvdiljfg000fl8lqakvxqs98" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POST/">POST</a></li></ul>
@@ -320,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/12/array/" data-id="cjumsn2nq0005brlq5qplbitc" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/04/12/array/" data-id="cjvdiljet0002l8lqgzfwqxyv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -377,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/30/myhexo/" data-id="cjumsn2o00007brlqiehx69n0" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/03/30/myhexo/" data-id="cjvdiljf80009l8lqkciati4b" class="article-share-link">分享</a>
       
       
     </footer>
@@ -430,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/28/hexo/" data-id="cjumsn2nv0006brlq2rybja2v" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/03/28/hexo/" data-id="cjvdiljf60007l8lqkmh10rl8" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -486,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/28/hello-world/" data-id="cjumsn2ne0002brlqpn1m06fi" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2019/03/28/hello-world/" data-id="cjvdiljf20005l8lq9e46f3ng" class="article-share-link">分享</a>
       
       
     </footer>
@@ -540,7 +607,7 @@
       
     </li></ul></div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/11/24/RoadGrop/" data-id="cjumsn2mm0000brlqwj30tlzt" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/11/24/RoadGrop/" data-id="cjvdiljen0000l8lqz9x5fbf4" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MDM/">MDM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/胡老大/">胡老大</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/辉哥/">辉哥</a></li></ul>
@@ -594,7 +661,7 @@
     <h2 class="author">summer</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>10</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
