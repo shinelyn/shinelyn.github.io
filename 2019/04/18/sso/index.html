@@ -3,15 +3,21 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: 辉哥 | summer</title>
+  <title>单点登陆 | summer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="summer">
-<meta property="og:url" content="http://yoursite.com/tags/辉哥/index.html">
+  <meta name="description" content="单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。 单点登陆的机制（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单点登陆">
+<meta property="og:url" content="http://yoursite.com/2019/04/18/sso/index.html">
 <meta property="og:site_name" content="summer">
+<meta property="og:description" content="单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。 单点登陆的机制（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/image.jpg">
+<meta property="og:updated_time" content="2019-04-18T15:18:55.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="summer">
+<meta name="twitter:title" content="单点登陆">
+<meta name="twitter:description" content="单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。 单点登陆的机制（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应">
+<meta name="twitter:image" content="http://yoursite.com/images/image.jpg">
   
     <link rel="alternate" href="/atom.xml" title="summer" type="application/atom+xml">
   
@@ -64,42 +70,75 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/24/RoadGrop/" class="archive-article-date">
-  <time class="post-time" datetime="2018-11-24T04:43:56.000Z" itemprop="datePublished">
-    <span class="post-month">11月</span><br>
-    <span class="post-day">24</span>
+        <section id="main"><article id="post-sso" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/18/sso/" class="article-date">
+  <time class="post-time" datetime="2019-04-18T14:38:22.556Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br>
+    <span class="post-day">18</span>
   </time>
 </a>
-      
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/24/RoadGrop/">MDM重构之路</a>
+    <h1 class="article-title" itemprop="name">
+      单点登陆
     </h1>
   
 
-    </header>
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>单点登陆（Singgle Sign On），简称SSO，在多个系统中，用户只要登陆一次就可以访问所有相互信任的应用系统。</p>
+<p>单点登陆的机制<br>（1）用户第一次访问应用系统1的时候，因为还没有登陆，会被引导到认证系统中进行登陆。<br>（2）根据用户提供的登陆信息，认证系统进行身份校验，通过校验，返回给用户一个认证凭证–ticket。<br>（3）用户在访问别的系统时就会将这个（ticket）带上，作为自己认证的凭证，应用系统在接收到请求之后会把ticket送到认证系统进行校验，检查ticket的合法性（4，6）。通过检验，用户就可以在不用在再次登陆的情况下访问应用系统2和应用系统3了</p>
+<p><img src="/images/image.jpg" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/18/sso/" data-id="cjumsn2p9000dbrlqakc6d2s3" class="article-share-link">分享</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/18/sso-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          sso
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/17/mongodb/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">mongoose入门</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
 
 </section>
         

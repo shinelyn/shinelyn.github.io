@@ -3,21 +3,15 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>浏览器的工作原理 | summer</title>
+  <title>Tag: POST | summer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浏览器的工作原理">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/brower/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="summer">
+<meta property="og:url" content="http://yoursite.com/tags/POST/index.html">
 <meta property="og:site_name" content="summer">
-<meta property="og:description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/03/30/brower/images/process.png">
-<meta property="og:updated_time" content="2019-03-30T04:43:09.443Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器的工作原理">
-<meta name="twitter:description" content="我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么 浏览器的多进程架构以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责 进程（process）和线程（thread）">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/30/brower/images/process.png">
+<meta name="twitter:title" content="summer">
   
     <link rel="alternate" href="/atom.xml" title="summer" type="application/atom+xml">
   
@@ -44,9 +38,9 @@
     <h2 class="author">summer</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,69 +64,42 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-brower" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/30/brower/" class="article-date">
-  <time class="post-time" datetime="2019-03-30T03:34:31.269Z" itemprop="datePublished">
-    <span class="post-month">3月</span><br>
-    <span class="post-day">30</span>
+        <section id="main">
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap animated rubberBand">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2019/04/16/post/" class="archive-article-date">
+  <time class="post-time" datetime="2019-04-16T09:54:26.185Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br>
+    <span class="post-day">16</span>
   </time>
 </a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
-    <h1 class="article-title" itemprop="name">
-      浏览器的工作原理
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/16/post/">四种常见的POST提交方式</a>
     </h1>
   
 
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们希望知道在浏览器地址栏中输入URL到页面展现的短短几秒浏览器究竟做了什么</p>
-<h2 id="浏览器的多进程架构"><a href="#浏览器的多进程架构" class="headerlink" title="浏览器的多进程架构"></a>浏览器的多进程架构</h2><p>以Chrome为例，它由多个进程组成，每个进程都有自己的指责，他们相互配合完成浏览器的整体功能，每个进程又包含多个线程，一个进程内地多个线程也会协同的工作，配合完成所在进程的指责</p>
-<h4 id="进程（process）和线程（thread）"><a href="#进程（process）和线程（thread）" class="headerlink" title="进程（process）和线程（thread）"></a>进程（process）和线程（thread）</h4><a id="more"></a>
-<p>进程就像一个有边界的生产厂商，而线程就像厂间内的员工，可以自己做自己的事情，也可以相互配合做同一件事。</p>
-<p>启动应用–&gt;创建一个进程，操作系统会为进程分配一部分内存，应用所有的状态都会保存在这块内存中；应用也可能创建多个线程来辅助工作，创建的线程共享这部分内存中的数据，应用关闭，进程会被终结，操作系统会释放相关的内存。<br>同时一个进程还可以要求操作系统生成另一个进程来执行不同的任务，系统会为新的进程分配独立的内存，两个进程之间可以使用 IPC （Inter Process Communication）进行通信。如果一个工作进程反应迟钝，重启这个进程不会影响应用其它进程的工作。</p>
-<h2 id="浏览器架构"><a href="#浏览器架构" class="headerlink" title="浏览器架构"></a>浏览器架构</h2><p>以Chrome为例,Chrome采用多进程架构，其顶层存在一个Browser process用以协调浏览器的其他进程<br><img src="images/process.png" alt="gg"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/30/brower/" data-id="cjtuxzfpd00001vlqw1au4lc0" class="article-share-link">分享</a>
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2019/03/28/hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">hexo 建站</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
+  
+  
+    </div></section>
+  
 
 </section>
         
@@ -173,9 +140,9 @@
     <h2 class="author">summer</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>4</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
 
 

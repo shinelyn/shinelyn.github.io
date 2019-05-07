@@ -3,15 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Tag: 辉哥 | summer</title>
+  <title>四种常见的POST提交方式 | summer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="summer">
-<meta property="og:url" content="http://yoursite.com/tags/辉哥/index.html">
+  <meta name="description" content="HTTP/1.1协议 规定HTTP的请求方法有OPTIONS，GET，HEAD，POST，PUT，DELETE等，其中POST一般用来向服务器提交数据。HTTP协议是以ASCII码传输，建立在TCP/IP协议之上的应用层规范。规范将HTTP请求分为3部分：状态行，请求头，消息主体，POST提交的数据必须放在消息主体中，但没有规定数据必须使用什么编码方式。开发者可以自己决定消息主体的格式，只要最后发">
+<meta name="keywords" content="POST">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四种常见的POST提交方式">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/post/index.html">
 <meta property="og:site_name" content="summer">
+<meta property="og:description" content="HTTP/1.1协议 规定HTTP的请求方法有OPTIONS，GET，HEAD，POST，PUT，DELETE等，其中POST一般用来向服务器提交数据。HTTP协议是以ASCII码传输，建立在TCP/IP协议之上的应用层规范。规范将HTTP请求分为3部分：状态行，请求头，消息主体，POST提交的数据必须放在消息主体中，但没有规定数据必须使用什么编码方式。开发者可以自己决定消息主体的格式，只要最后发">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-16T11:07:23.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="summer">
+<meta name="twitter:title" content="四种常见的POST提交方式">
+<meta name="twitter:description" content="HTTP/1.1协议 规定HTTP的请求方法有OPTIONS，GET，HEAD，POST，PUT，DELETE等，其中POST一般用来向服务器提交数据。HTTP协议是以ASCII码传输，建立在TCP/IP协议之上的应用层规范。规范将HTTP请求分为3部分：状态行，请求头，消息主体，POST提交的数据必须放在消息主体中，但没有规定数据必须使用什么编码方式。开发者可以自己决定消息主体的格式，只要最后发">
   
     <link rel="alternate" href="/atom.xml" title="summer" type="application/atom+xml">
   
@@ -64,42 +69,80 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/11/24/RoadGrop/" class="archive-article-date">
-  <time class="post-time" datetime="2018-11-24T04:43:56.000Z" itemprop="datePublished">
-    <span class="post-month">11月</span><br>
-    <span class="post-day">24</span>
+        <section id="main"><article id="post-post" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/16/post/" class="article-date">
+  <time class="post-time" datetime="2019-04-16T09:54:26.185Z" itemprop="datePublished">
+    <span class="post-month">4月</span><br>
+    <span class="post-day">16</span>
   </time>
 </a>
-      
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/24/RoadGrop/">MDM重构之路</a>
+    <h1 class="article-title" itemprop="name">
+      四种常见的POST提交方式
     </h1>
   
 
-    </header>
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP/1.1协议 规定HTTP的请求方法有OPTIONS，GET，HEAD，POST，PUT，DELETE等，其中POST一般用来向服务器提交数据。HTTP协议是以ASCII码传输，建立在TCP/IP协议之上的应用层规范。规范将HTTP请求分为3部分：状态行，请求头，消息主体，POST提交的数据必须放在消息主体中，但没有规定数据必须使用什么编码方式。开发者可以自己决定消息主体的格式，只要最后发送的HTTP请求满足上面的格式就行了。</p>
+<p>但是消息发送出去，还需要服务器解析成功才有意义，一般的服务器语言，php，python等，以及他们的framework都内置了自动解析常见的数据格式的功能。服务端通常根据请求头（headers）中的Content-type 字段来获知请求消息主体是用何种方式编码，在对主体进行解析。</p>
+<h4 id="application-x-www-form-urlencoded"><a href="#application-x-www-form-urlencoded" class="headerlink" title="application/x-www-form-urlencoded"></a>application/x-www-form-urlencoded</h4><p>浏览器的原生<form> 表单，不设置enctype属性，最终会以 application/x-www-form-urlencoded方式提交数据。</form></p>
+<p>POST <a href="http://www.example.com" target="_blank" rel="noopener">http://www.example.com</a> HTTP/1.1<br>Content-Type: application/x-www-form-urlencoded;charset=utf-8<br>title=test&amp;sub%5B%5D=1&amp;sub%5B%5D=2&amp;sub%5B%5D=3</p>
+<p>首先Content-Type 被指定为application/x-www-form-urlencoded，提交的数据按照 key1 = val1 &amp; key2 = val2 的方式进行编码，大部分服务语言都对这个有很好的支持。</p>
+<p>#### </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/16/post/" data-id="cjumsn2p5000cbrlq3ti9hbwl" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POST/">POST</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/17/mongodb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          mongoose入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/12/array/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">js 数组的基本操作</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
 
 </section>
         
